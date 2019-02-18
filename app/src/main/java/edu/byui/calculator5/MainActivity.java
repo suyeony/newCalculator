@@ -17,8 +17,8 @@ public class MainActivity extends AppCompatActivity {
 
     TextView textField;
 
-    public String result = "";
-    public String totalResult = "";
+    public String left = "";
+    public String operation = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
                 // executes on main thread after user presses button
 
                 if (textField.getText() == "0") {
+                    textField.setText("2");
+                }
+                else if (operation != null) {
                     textField.setText("2");
                 }
                 else {
@@ -242,7 +245,8 @@ public class MainActivity extends AppCompatActivity {
                 if (textField.getText() == null) {
                     textField.setText(textField.getText() + "");
                 } else {
-                    result = textField.getText() + "+";
+                    left = (String) textField.getText();
+                    operation = "+";
                     textField.setText(textField.getText());
                 }
             }
@@ -257,7 +261,8 @@ public class MainActivity extends AppCompatActivity {
                 if (textField.getText() == null) {
                     textField.setText(textField.getText() + "");
                 } else {
-                    result = textField.getText() + "-";
+                    left = (String) textField.getText();
+                    operation = "-";
                     textField.setText(textField.getText());
                 }
             }
@@ -272,7 +277,8 @@ public class MainActivity extends AppCompatActivity {
                 if (textField.getText() == null) {
                     textField.setText(textField.getText() + "");
                 } else {
-                    result = textField.getText() + "*";
+                    left = (String) textField.getText();
+                    operation = "*";
                     textField.setText(textField.getText());
                 }
             }
@@ -285,13 +291,12 @@ public class MainActivity extends AppCompatActivity {
                 if (textField.getText() == null) {
                     textField.setText(textField.getText() + "");
                 } else {
-                    result = textField.getText() + "/";
+                    left = (String) textField.getText();
+                    operation = "/";
                     textField.setText(textField.getText());
                 }
             }
         });
-
-
 
         buttonInt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -314,8 +319,8 @@ public class MainActivity extends AppCompatActivity {
                 if (textField.getText() == null) {
                     textField.setText(textField.getText() + "");
                 } else {
-                    totalResult = result + textField.getText();
-                    textField.setText(String.valueOf(Integer.parseInt(totalResult)));
+                    left += operation + textField.getText();
+                    textField.setText(String.valueOf(Integer.parseInt(left)));
                 }
             }
         });

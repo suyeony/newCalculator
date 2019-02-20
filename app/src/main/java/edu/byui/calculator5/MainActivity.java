@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import static java.lang.Double.parseDouble;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -17,8 +19,12 @@ public class MainActivity extends AppCompatActivity {
 
     TextView textField;
 
-    public String left = "";
-    public String operation = "";
+    public String currentNum = "";
+    public String currentOperation = "";
+    public String operator;
+    public String leftValue;
+    public String rightValue;
+    public double result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,21 +53,20 @@ public class MainActivity extends AppCompatActivity {
         buttonInt = findViewById(R.id.buttonInt);
         buttonEqual = findViewById(R.id.buttonEqual);
 
-        //button1.setOnClickListener(new view.onClickLis);
-
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // executes on main thread after user presses button
                 if (textField.getText() == "0") {
                     textField.setText("1");
+                    currentNum = "1";
                 }
                 else {
-                    textField.setText(textField.getText() + "1");
-                }
+                        textField.setText(textField.getText() + "1");
+                        currentNum = textField.getText() + "1";
+                    }
 
             }
-
         });
 
         button2.setOnClickListener(new View.OnClickListener() {
@@ -72,10 +77,8 @@ public class MainActivity extends AppCompatActivity {
                 if (textField.getText() == "0") {
                     textField.setText("2");
                 }
-                else if (operation != null) {
-                    textField.setText("2");
-                }
                 else {
+                    currentNum = "2";
                     textField.setText(textField.getText() + "2");
                 }
             }
@@ -232,71 +235,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // executes on main thread after user presses button
 
-                textField.setText(String.valueOf((Double.parseDouble((String) textField.getText()) * 0.01)));
+                textField.setText(String.valueOf((parseDouble((String) textField.getText()) * 0.01)));
             }
         });
 
-        buttonAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // executes on main thread after user presses button
-                // String addResult = textField.getText() + "+";
-
-                if (textField.getText() == null) {
-                    textField.setText(textField.getText() + "");
-                } else {
-                    left = (String) textField.getText();
-                    operation = "+";
-                    textField.setText(textField.getText());
-                }
-            }
-        });
-
-        buttonMinus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // executes on main thread after user presses button
-                // String addResult = textField.getText() + "+";
-
-                if (textField.getText() == null) {
-                    textField.setText(textField.getText() + "");
-                } else {
-                    left = (String) textField.getText();
-                    operation = "-";
-                    textField.setText(textField.getText());
-                }
-            }
-        });
-
-        buttonMultiply.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // executes on main thread after user presses button
-
-
-                if (textField.getText() == null) {
-                    textField.setText(textField.getText() + "");
-                } else {
-                    left = (String) textField.getText();
-                    operation = "*";
-                    textField.setText(textField.getText());
-                }
-            }
-        });
-
-        buttonDivide.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // executes on main thread after user presses button
-                if (textField.getText() == null) {
-                    textField.setText(textField.getText() + "");
-                } else {
-                    left = (String) textField.getText();
-                    operation = "/";
-                    textField.setText(textField.getText());
-                }
-            }
-        });
 
         buttonInt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -309,23 +251,42 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        buttonAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // executes on main thread after user presses button
+                operationClicked("+");
+            }
+        });
 
         buttonEqual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // executes on main thread after user presses button
-                // String addResult = textField.getText() + "+";
-
-                if (textField.getText() == null) {
-                    textField.setText(textField.getText() + "");
-                } else {
-                    left += operation + textField.getText();
-                    textField.setText(String.valueOf(Integer.parseInt(left)));
-                }
+                operationClicked("=");
             }
         });
-
-
     }
+
+    private void operationClicked(String operator) {
+        if (currentOperation != null) {
+            if (currentNum != "") {
+                rightValue = currentNum;
+                currentNum = "";
+
+                if (currentOperation == "+") {
+                    result = parseDouble(leftValue) + parseDouble(rightValue);
+                    textField.setText(String.valueOf(result));
+                    leftValue = String.valueOf(result);
+                }
+            }
+        } else {
+            leftValue = currentNum;
+            currentNum = "";
+        }
+
+        currentOperation = operator;
+    }
+
 }
 

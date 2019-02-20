@@ -20,10 +20,9 @@ public class MainActivity extends AppCompatActivity {
     TextView textField;
 
     public String currentNum = "";
-    public String currentOperation = "";
-    public String operator;
-    public String leftValue;
-    public String rightValue;
+    public String currentOperation = null;
+    public String leftValue = "";
+    public String rightValue = "";
     public double result;
 
     @Override
@@ -62,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
                     currentNum = "1";
                 }
                 else {
-                        textField.setText(textField.getText() + "1");
-                        currentNum = textField.getText() + "1";
+                    currentNum = currentNum + "1";
+                    textField.setText(currentNum);
                     }
 
             }
@@ -76,10 +75,11 @@ public class MainActivity extends AppCompatActivity {
 
                 if (textField.getText() == "0") {
                     textField.setText("2");
+                    currentNum = "2";
                 }
                 else {
-                    currentNum = "2";
-                    textField.setText(textField.getText() + "2");
+                    currentNum = currentNum + "2";
+                    textField.setText(currentNum);
                 }
             }
 
@@ -92,9 +92,11 @@ public class MainActivity extends AppCompatActivity {
 
                 if (textField.getText() == "0") {
                     textField.setText("3");
+                    currentNum = "3";
                 }
                 else {
-                    textField.setText(textField.getText() + "3");
+                    currentNum = currentNum + "3";
+                    textField.setText(currentNum);
                 }
             }
 
@@ -107,9 +109,11 @@ public class MainActivity extends AppCompatActivity {
 
                 if (textField.getText() == "0") {
                     textField.setText("4");
+                    currentNum = "4";
                 }
                 else {
-                    textField.setText(textField.getText() + "4");
+                    currentNum = currentNum + "4";
+                    textField.setText(currentNum);
                 }
             }
 
@@ -122,9 +126,11 @@ public class MainActivity extends AppCompatActivity {
 
                 if (textField.getText() == "0") {
                     textField.setText("5");
+                    currentNum = "5";
                 }
                 else {
-                    textField.setText(textField.getText() + "5");
+                    currentNum = currentNum + "5";
+                    textField.setText(currentNum);
                 }
             }
 
@@ -137,9 +143,11 @@ public class MainActivity extends AppCompatActivity {
 
                 if (textField.getText() == "0") {
                     textField.setText("6");
+                    currentNum = "6";
                 }
                 else {
-                    textField.setText(textField.getText() + "6");
+                    currentNum = currentNum + "6";
+                    textField.setText(currentNum);
                 }
             }
 
@@ -152,9 +160,11 @@ public class MainActivity extends AppCompatActivity {
 
                 if (textField.getText() == "0") {
                     textField.setText("7");
+                    currentNum = "7";
                 }
                 else {
-                    textField.setText(textField.getText() + "7");
+                    currentNum = currentNum + "7";
+                    textField.setText(currentNum);
                 }
             }
 
@@ -167,9 +177,11 @@ public class MainActivity extends AppCompatActivity {
 
                 if (textField.getText() == "0") {
                     textField.setText("8");
+                    currentNum = "8";
                 }
                 else {
-                    textField.setText(textField.getText() + "8");
+                    currentNum = currentNum + "8";
+                    textField.setText(currentNum);
                 }
             }
 
@@ -182,9 +194,11 @@ public class MainActivity extends AppCompatActivity {
 
                 if (textField.getText() == "0") {
                     textField.setText("9");
+                    currentNum = "9";
                 }
                 else {
-                    textField.setText(textField.getText() + "9");
+                    currentNum = currentNum + "9";
+                    textField.setText(currentNum);
                 }
             }
 
@@ -197,9 +211,11 @@ public class MainActivity extends AppCompatActivity {
 
                 if (textField.getText() == "0") {
                     textField.setText("");
+                    currentNum = "0";
                 }
                 else {
-                    textField.setText(textField.getText() + "0");
+                    currentNum = currentNum + "0";
+                    textField.setText(currentNum);
                 }
             }
 
@@ -224,7 +240,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // executes on main thread after user presses button
-
+                currentNum = "";
+                currentOperation = null;
+                leftValue = "";
+                rightValue = "";
                 textField.setText("0");
             }
 
@@ -259,6 +278,39 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        buttonMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // executes on main thread after user presses button
+                operationClicked("-");
+            }
+        });
+
+        buttonAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // executes on main thread after user presses button
+                operationClicked("+");
+            }
+        });
+
+        buttonMultiply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // executes on main thread after user presses button
+                operationClicked("*");
+            }
+        });
+
+        buttonDivide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // executes on main thread after user presses button
+                operationClicked("/");
+            }
+        });
+
+
         buttonEqual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -272,13 +324,27 @@ public class MainActivity extends AppCompatActivity {
         if (currentOperation != null) {
             if (currentNum != "") {
                 rightValue = currentNum;
-                currentNum = "";
+                currentNum = null;
 
                 if (currentOperation == "+") {
                     result = parseDouble(leftValue) + parseDouble(rightValue);
-                    textField.setText(String.valueOf(result));
-                    leftValue = String.valueOf(result);
                 }
+
+                if (currentOperation == "-") {
+                    result = parseDouble(leftValue) - parseDouble(rightValue);
+                }
+
+                if (currentOperation == "*") {
+                    result = parseDouble(leftValue) * parseDouble(rightValue);
+                }
+
+                if (currentOperation == "/") {
+                    result = parseDouble(leftValue) / parseDouble(rightValue);
+                }
+
+                textField.setText(String.valueOf(result));
+                leftValue = String.valueOf(result);
+
             }
         } else {
             leftValue = currentNum;

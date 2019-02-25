@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
     tools:context=".MainActivity">
 
 
@@ -11,16 +12,19 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
         android:textSize="30dp"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="104dp" />
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="260dp"
-        tools:layout_editor_absoluteY="11dp"
-        tools:ignore="MissingConstraints">
+        android:layout_height="288dp"
+        android:layout_marginTop="164dp"
+        android:stretchColumns="*"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
 
         <TableRow
             android:layout_width="match_parent"
@@ -32,25 +36,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="AC" />
+                android:text="AC"
+                android:textSize="40dp" />
 
             <Button
                 android:id="@+id/buttonInt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+/-" />
+                android:text="+/-"
+                android:textSize="40dp" />
 
             <Button
                 android:id="@+id/buttonPercent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="%" />
+                android:text="%"
+                android:textSize="40dp" />
 
             <Button
                 android:id="@+id/buttonDivide"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="÷	" />
+                android:text="÷	"
+                android:textSize="40dp" />
         </TableRow>
 
         <TableRow
@@ -61,25 +69,29 @@
                 android:id="@+id/button7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="7" />
+                android:text="7"
+                android:textSize="40dp" />
 
             <Button
                 android:id="@+id/button8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="8" />
+                android:text="8"
+                android:textSize="40dp" />
 
             <Button
                 android:id="@+id/button9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="9" />
+                android:text="9"
+                android:textSize="40dp" />
 
             <Button
                 android:id="@+id/buttonMultiply"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="×" />
+                android:text="×"
+                android:textSize="40dp" />
         </TableRow>
 
         <TableRow
@@ -91,25 +103,29 @@
                 android:id="@+id/button4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4" />
+                android:text="4"
+                android:textSize="40dp" />
 
             <Button
                 android:id="@+id/button5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5" />
+                android:text="5"
+                android:textSize="40dp" />
 
             <Button
                 android:id="@+id/button6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="6" />
+                android:text="6"
+                android:textSize="40dp" />
 
             <Button
                 android:id="@+id/buttonSub"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="−" />
+                android:text="−"
+                android:textSize="40dp" />
         </TableRow>
 
         <TableRow
@@ -120,25 +136,29 @@
                 android:id="@+id/button1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1" />
+                android:text="1"
+                android:textSize="40dp" />
 
             <Button
                 android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2" />
+                android:text="2"
+                android:textSize="40dp" />
 
             <Button
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3" />
+                android:text="3"
+                android:textSize="40dp" />
 
             <Button
                 android:id="@+id/buttonAdd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+" />
+                android:text="+"
+                android:textSize="40dp" />
         </TableRow>
 
         <TableRow
@@ -152,19 +172,22 @@
                 android:layout_height="wrap_content"
 
                 android:layout_span="2"
-                android:text="0" />
+                android:text="0"
+                android:textSize="40dp" />
 
             <Button
                 android:id="@+id/buttonDot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="." />
+                android:text="."
+                android:textSize="40dp" />
 
             <Button
                 android:id="@+id/buttonEqual"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="=" />
+                android:text="="
+                android:textSize="40dp" />
         </TableRow>
     </TableLayout>
 

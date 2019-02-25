@@ -61,10 +61,9 @@ public class MainActivity extends AppCompatActivity {
                     currentNum = "1";
                 }
                 else {
-                    currentNum = currentNum + "1";
-                    textField.setText(currentNum);
-                    }
-
+                        currentNum = currentNum + "1";
+                        textField.setText(currentNum);
+                }
             }
         });
 
@@ -324,7 +323,7 @@ public class MainActivity extends AppCompatActivity {
         if (currentOperation != null) {
             if (currentNum != "") {
                 rightValue = currentNum;
-                currentNum = null;
+                currentNum = "";
 
                 if (currentOperation == "+") {
                     result = parseDouble(leftValue) + parseDouble(rightValue);

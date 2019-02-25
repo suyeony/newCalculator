@@ -11,20 +11,24 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30dp"
+        android:layout_height="0dp"
+        android:gravity="right"
+        android:text="0"
+        android:textAlignment="gravity"
+        android:textSize="50dp"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="104dp" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="135dp" />
+
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="288dp"
-        android:layout_marginTop="164dp"
+        android:layout_height="500dp"
+        android:layout_paddleTop="0dp"
         android:stretchColumns="*"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp">
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="202dp">
 
         <TableRow
             android:layout_width="match_parent"

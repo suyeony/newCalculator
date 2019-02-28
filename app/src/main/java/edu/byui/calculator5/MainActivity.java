@@ -1,5 +1,6 @@
 package edu.byui.calculator5;
 
+import android.support.design.button.MaterialButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     //buttons for numbers
-    Button button1, button2, button3, button4, button5, button6, button7, button8,
+    public MaterialButton button1, button2, button3, button4, button5, button6, button7, button8,
             button9, button0, buttonAdd, buttonMinus, buttonDivide, buttonMultiply,
             buttonEqual, buttonDot, buttonAC, buttonPercentage, buttonInt;
 

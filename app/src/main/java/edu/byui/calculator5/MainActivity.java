@@ -264,8 +264,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // executes on main thread after user presses button
                 // String addResult = textField.getText() + "+";
-
-                textField.setText((String.valueOf(Integer.parseInt((String) textField.getText()) * - 1)));
+                currentNum = String.valueOf(Integer.parseInt((String) textField.getText()) * - 1);
+                textField.setText(currentNum);
 
             }
         });

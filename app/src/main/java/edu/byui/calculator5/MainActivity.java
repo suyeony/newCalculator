@@ -253,8 +253,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // executes on main thread after user presses button
-
-                textField.setText(String.valueOf((parseDouble((String) textField.getText()) * 0.01)));
+                currentNum = String.valueOf((parseDouble((String) textField.getText()) * 0.01));
+                textField.setText(currentNum);
             }
         });
 

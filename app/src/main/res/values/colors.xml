@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorNumberOperation">#ffffff</color>
+    <color name="colorFirstLine">#E0E0E0</color>
+    <color name="colorOrange">#FF8C00</color>
+    <color name="colorNumber">#606060</color>
+    <color name="colorBlack">#000000</color>
 </resources>
